@@ -1,0 +1,46 @@
+圆分为两种，一种空心圆环，一种实心圆饼。
+先说圆环：
+	1. 先设立圆心：鼠标第一次按下时候取到的坐标
+	2. 设立半径：根据鼠标第二次按下时候取得的坐标求距离。
+	3. 设立点的数量，从极限的角度说，圆其实是一个无线多边的多边形，只是我们眼睛看起来是个圆就行了， 
+这里测试发现90个点就已经显得比较圆了，如果要求更高则设定更多个点。
+	4. 然后设定第一个点，然后根据角度一次向一个方向打点，直到回到第一个点。
+
+下面是个例子代码，java的，看下思路即可。
+
+double dx = mousePixel.getX() - centerPixel.getX();
+double dy = mousePixel.getY() - centerPixel.getY();
+double radius = Math.sqrt(Math.pow(dy,2) + Math.pow(dx,2));
+double radiusX;
+double radiusY;
+int angle = 0;
+List<Pixel> points = new ArrayList<Pixel>();
+int numberOfCirclePoints = 90;//90个点
+while (angle < numberOfCirclePoints)
+{
+	radiusX = centerPixel.getX() + Math.cos(angle*Math.PI*2/numberOfCirclePoints) * radius;
+	radiusY = centerPixel.getY() + Math.sin(angle*Math.PI*2/numberOfCirclePoints) * radius;
+	Pixel lonlat = new Pixel((float)radiusX, (float)radiusY);
+	points.add(lonlat);
+	angle++;
+}
+points.add(points.get(0));
+
+
+再说圆饼：
+圆饼其实就是将与圆形的距离小于半径的点都画下来。
+这里在Linux上试了下，用的ppm格式。
+先说说ppm格式：
+https://en.wikipedia.org/wiki/Netpbm_format
+
+1. 先放格式：
+	1. P1、P2、P3用ASCLL码存储，P4、P5、P6是用二进制存储。前者好读，可以用文本编辑器打开，中间有空格隔开。后者处理快，更小巧，但是不方便读。
+	2. P1、P4是位图（bitmap，PBM）；P2、P5是GrayMap（PGM）；P3、P6是像素图（PixMap，PPM），在二进制格式中，PBM每像素使用1位，PGM每像素使用8位，PPM每像素使用24位：红色8位，绿色8位，蓝色8位。
+2. 然后放像素高宽（先宽后高，比如600 400就表示宽600像素，高400像素）
+3. 然后放颜色最大值，一般是255
+4. 最后是像素信息
+	1. 如果是P3：（RGB三元组），比如255 0 0就表示红色，0 255 0就是绿色了，0 0 255蓝色，255 255 0就是红加绿色，即黄色。255 255 255白色，0 0 0黑色。
+	2. 如果是P6：即只用三个字节分别表示三原色的占比。
+
+
+

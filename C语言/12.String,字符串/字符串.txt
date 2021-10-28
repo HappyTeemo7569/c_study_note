@@ -1,0 +1,58 @@
+C语言没有string类型，有三种表现形式：
+	字面值常量，字符串数组，字符串指针。 
+字符串指针变量：指向字符串常量的头指针。 
+	char* ps = “language”; //可写为：char* ps; ps = “language”; 
+字符数组=元素+元素+元素+。。。 
+	static char s[] = {“language”}; //只能对各元素逐个赋值修改
+
+注意： 
+	定义时不要指向不可用地址（或者未知地址）
+		char* name; //不知道指向哪里，需要初始化 
+	用数组申请栈区 char name[20]; 
+	申请堆区 char* name; name = (char*)malloc(50);
+
+字符串数组和字符串指针区别：
+	char* p = "abcdef";  //常量只读，strcpy(p,"def");错误，因为p指向的a是常量只读的
+	char a[] = "abcdef"; //可以修改，但是只能单个元素修改，strcpy(a,"def");是对的
+
+区分：
+	char = 'a';               //堆区字符         sizeof     1
+	char a[] = "abc";         //栈区字符串                  3
+	char* p = "abc";          //常量区字符串                4（指针）
+	char* p1 = new char[100]; //堆区字符串                  4
+
+字符串处理相关的常用函数库：
+	strlen 求字符串长度
+		unsigned int strlen(char* str); 
+		测试字符串或字符串常量的长度（不包含’\0’），作为函数的返回值。
+		sizeof会将\0后面的垃圾值也算在内。
+
+	strcmp 字符串比较
+		 char* strcmp(char* str1,char* str2);
+		1=2,返回0；
+		1>2,返回正整数；
+		1<2,返回负整数。
+		比较的是ascll码，从左到右，遇到‘\0’为止（结束符也参与比较）
+
+	strcpy 字符串拷贝
+		char* strcpy(char* str1,char* str2); 
+		2拷贝到1 ，字符数组1必须足够大，拷贝时‘\0’一同拷贝，不能使用赋值语句为一个字符数组赋值。
+
+	strcat 字符串连接
+		char* strcat(char* str1,char* str2); 
+		删掉1的’\0’,字符串2拷贝到1的后面（中间有一个空格） 
+		连接后1变长，2不变 
+		要保证字符串1的空间足够,否则会占用后面的储存空间。
+
+	strtok 切割字符串
+		p1=strtok(str3,’#’);以某个字符串切分某个字符串(取前面的) 
+		p2=strtok(NULL,’#’);接着上次的调用继续切分后面的内容，所以第一个参数一定要传NULL. 
+		p3=strtok(NULL,’#’);
+
+	strchr 查找某个字符
+		strstr 在指定字符串中查找某个字符串，即 查找子字符串
+
+转型：
+	atoi(char *) 字符串型—>整型 
+	itoa(int,cahr *,int)整形—->字符串型 
+	sprintf(char *,格式化输入) 赋给字符串，而不打印出来。

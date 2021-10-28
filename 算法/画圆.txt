@@ -1,0 +1,159 @@
+圆分为两种，一种空心圆环，一种实心圆饼。
+先说圆环：
+    1. 先设立圆心：鼠标第一次按下时候取到的坐标
+    2. 设立半径：根据鼠标第二次按下时候取得的坐标求距离。
+    3. 设立点的数量，从极限的角度说，圆其实是一个无线多边的多边形，只是我们眼睛看起来是个圆就行了， 这里测试发现90个点就已经显得比较圆了，如果要求更高则设定更多个点。
+    4. 然后设定第一个点，然后根据角度一次向一个方向打点，直到回到第一个点。
+
+下面是个例子代码，Java的，看下思路即可：
+  double dx = mousePixel.getX() - centerPixel.getX();
+  double dy = mousePixel.getY() - centerPixel.getY();
+  double radius = Math.sqrt(Math.pow(dy,2) + Math.pow(dx,2));
+  double radiusX;
+  double radiusY;
+  int angle = 0;
+  List<Pixel> points = new ArrayList<Pixel>();
+  int numberOfCirclePoints = 90;//90个点
+  while (angle < numberOfCirclePoints)
+  {
+      radiusX = centerPixel.getX() + Math.cos(angle*Math.PI*2/numberOfCirclePoints) * radius;
+      radiusY = centerPixel.getY() + Math.sin(angle*Math.PI*2/numberOfCirclePoints) * radius;
+      Pixel lonlat = new Pixel((float)radiusX, (float)radiusY);
+      points.add(lonlat);
+      angle++;
+  }
+  points.add(points.get(0));
+ 
+再说圆饼：
+圆饼其实就是将与圆形的距离小于半径的点都画下来。 这里在Linux上试了下，用的ppm格式。
+先说说ppm格式： https://en.wikipedia.org/wiki/Netpbm_format
+    1. 先放格式： 
+    
+        1. P1、P2、P3用ASCLL码存储，P4、P5、P6是用二进制存储。前者好读，可以用文本编辑器打开，中间有空格隔开。后者处理快，更小巧，但是不方便读。
+        2. P1、P4是位图（bitmap，PBM）；P2、P5是GrayMap（PGM）；P3、P6是像素图（PixMap，PPM），在二进制格式中，PBM每像素使用1位，PGM每像素使用8位，PPM每像素使用24位：红色8位，绿色8位，蓝色8位。
+    2. 然后放像素高宽（先宽后高，比如600 400就表示宽600像素，高400像素）
+    3. 然后放颜色最大值，一般是255
+    4. 最后是像素信息 
+    
+        1. 如果是P3：（RGB三元组），比如255 0 0就表示红色，0 255 0就是绿色了，0 0 255蓝色，255 255 0就是红加绿色，即黄色。255 255 255白色，0 0 0黑色。
+        2. 如果是P6：即只用三个字节分别表示三原色的占比。
+
+下面放个大神的代码，稍加注释：
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct {
+  size_t width;  //宽
+  size_t height;  //高
+  unsigned char *data;  //数据
+} Image;  
+
+//根据长宽创建图像，申请内存
+static Image *
+image_new (size_t width,
+           size_t height)
+{
+  Image *image;
+
+  image = malloc (sizeof *image);
+  image->width = width;
+  image->height = height;
+  image->data = malloc (width * height*3);
+
+  return image;
+}
+
+//释放
+static void
+image_free (Image *image)
+{
+  free (image->data);
+  free (image);
+}
+
+//填充图像
+static void
+image_fill (Image *image,
+            unsigned char value)
+{
+  memset (image->data, value, image->width * image->height*3);
+}
+
+//画点，正方形中点是圆心，比如（300,300）
+static void
+image_set_pixel (Image *image,
+                 size_t x,
+                 size_t y,
+                 unsigned char Rvalue,
+                 unsigned char Gvalue,
+                 unsigned char Bvalue)
+{
+  size_t tx, ty;
+  unsigned char *p;
+
+  tx = (image->width / 2) + x;
+  ty = (image->height / 2) + y;
+
+  p = image->data + (ty * image->width * 3) + tx*3;
+  // 从左上角开始拍，一个像素3位，y*总宽*3等于排了多少横行，x*3等于该排排了多少位。
+
+    *p = Rvalue;
+    *(p+1) = Gvalue;
+    *(p+2) = Bvalue;
+}
+
+//写入文件
+static void
+image_save (const Image *image,
+            const char *filename)
+{
+  FILE *out;
+
+  out = fopen (filename, "wb");
+  if (!out)
+    return;
+
+  fprintf (out, "P6\n");
+  fprintf (out, "%zu %zu\n", image->width, image->height);
+  fprintf (out, "255\n");
+
+  fwrite (image->data, 1, image->width * image->height*3, out);
+
+  fclose (out);
+}
+
+//画圆
+static void
+draw_circle (Image *image,
+             int radius,
+             unsigned char Rvalue,
+             unsigned char Gvalue,
+             unsigned char Bvalue)
+{
+  int x, y;
+
+  for (y = -radius; y <= radius; y++)
+    for (x = -radius; x <= radius; x++)
+      if ((x * x) + (y * y) <= (radius * radius))
+        image_set_pixel (image, x, y, Rvalue,Gvalue,Bvalue);
+}
+
+
+int
+main (int argc, char *argv[])
+{
+  Image *image;
+
+  image = image_new (600, 600);
+
+  image_fill (image, 0xff);
+  draw_circle (image, 200, 0x00,0x00,0xff);
+  image_save (image, "circle.ppm");
+
+  image_free (image);
+
+  return 0;
+}
+

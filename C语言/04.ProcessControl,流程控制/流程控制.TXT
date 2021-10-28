@@ -1,0 +1,36 @@
+循环结构：
+    循环分为
+        入口条件循环（entry-condition cycle），不确定循环（indefinite loop）和计数循环（counting loop）
+        出口条件循环（exit-condition loop），do-while
+    计数循环：
+        1.必须初始化计数器；
+        2.计数器与有限的值作比较；
+        3.每次循环时递增计数器。
+
+    While可以一次都不执行，do-while必须执行一次。do-while末尾记得加分号。 
+    While中的表达式的值一直为非零常量，则形成死循环；若为零，则循环体内的语句一次也不会执行。
+      while (逻辑表达式) {
+      反复执行的语句
+    }
+      do {
+      反复执行的语句
+    } while (逻辑表达式)
+
+    For（初值；终值；增值）即初始化，控制条件，修改循环变量使循环趋于结束。 
+    C++可以直接在for语句中定义变量。 
+    for( ；1 ；)也可以造成死循环。
+
+    循环语句一定要注意结束条件，如果结束条件有错误则会造成死循环！ 
+    跳出循环： 
+      Break 终止并跳出最近一层的循环体。即循环结束。 
+      Continue 结束本次循环。回到循环开始，继续循环。 
+      return 结束函数体。用于跳出多层循环。跳出多层循环还可以设置flag。
+
+拓展： 
+分别写出BOOL,int,float,指针类型的变量a 与“零”的比较语句。 
+答：
+  BOOL : if ( !a ) or if(a)
+  int : if ( a == 0)
+  float : const EXPRESSION EXP = 0.000001
+  if ( a < EXP && a >-EXP)
+  pointer : if ( a != NULL) or if(a == NULL)

@@ -1,0 +1,317 @@
+I/O：input/output,输入输出。
+分三类：标准I/O，串I/O，文件I/O
+还有一种分发：底层 I/O （low-level I/O）和标准I/O包 （standard I/O package）
+
+
+标准I/O：
+
+标准输入：从标准输入设备（键盘）获取数据，调用scanf,gether,gets等函数库实现 
+标准输出：向标准输出设备（显示屏）输出数据，调用printf，putchar,puts等函数库可以实现 
+标准错误输出：向标准错误设备（显示屏）输出数据（通常为错误信息），调用perror,fputs,fwrite,fprintf等可以实现
+
+缓冲区：
+
+buffer，一块内存空间 
+缓冲区为了提高效率，一次性拿走，以免输入一次拿一次。 
+1. 标准输入缓冲区：用于暂时存放标准输入数据的一块内存空间，通常键盘按键输入的数据（通常需要按回车键确认输入，此时会有一个换行符进去标准输入缓冲区中）首先会进入标准输入缓冲区中等待处理。当调用输入相关的库函数时，如果标准输入缓冲区中没有任何数据，这些函数会阻塞（等待用户按键输入数据）直到输入缓冲区有数据为止。如果标准输入缓冲区中存在数据，并且这些数据是它们期望类型的数据，他们会取走这些数据，否则它们会立即失败返回。 
+清空标准输入缓冲区的做法： 
+While(getchar()!=‘\n’); 
+2. 标准输出缓冲区：调用标准输出相关的库函数时，输出的数据并不是立即被推送到显示屏上显示，而是进入标准输出缓冲区排队等候输出，当标准输出缓冲区满了或遇到了一些特殊字符（‘\n’）,操作系统就会将标准输出缓冲区里面的所有数据一次性地推送到显示屏上显示出来。
+标准错误输出没有缓冲区，是及时输出，保证我们可以及时看到错误信息。 
+Fflush(stdout);刷新（清空）标准输出缓冲区，即将标准输出缓冲区已有的数据立即推送到屏幕上显示。 
+Perror 标准错误输出
+
+
+
+
+串I/O：
+
+从一个字符串获取数据输入或输出数据到一个字符缓冲区，调用sscanf和sprintf 
+Sscanf函数可以用于取出字符串中的部分数据 
+Sprintf函数可以用于将其他类型数据转换为字符串 
+I=atoi(str);将字符串转换成整形 
+Atol,atof,strtod,strtof,strtol
+
+文件I/O：File I/O
+
+文件是指存储在计算机外部存储设备中的相关信息的集合。 
+C 语言使用数据文件的目的： 
+1. 数据文件的改动不会引起程序的改动，也就是数据和程序是分离的。 
+2. 不同程序可以访问同一数据文件中的数据，也就是数据共享。 
+3. 能长期保存程序运行的中间数据或结果数据。
+
+文件分类： 
+逻辑结构：记录文件（数据库文件），流式文件(字符数据顺序组成的文件) 
+存储介质：普通文件（磁盘文件），设备文件（键盘，显示器，打印机等） 
+文件内容：程序文件（源文件，目标文件，可执行文件），数据文件（媒体文件等） 
+组织形式：文本文件，二进制文件
+
+C语言把文件当成一个“流”，按字节进行处理。 
+流是一种理想化模型，表示由统一的属性来描述各种不同类型的输入输出。
+
+C文件按编码方式分为二进制文件和ASCLL文件 
+c语言中，用文件指针标识文件，当一个文件被打开时，可取得该文件指针。 
+文件在读写之前必须打开，读写结束必须关闭 
+文件可以按只读只写读写追加四种操作方式打开，同时还必须指定文件的类型是二进制文件还是文本文件。 
+文件可按字节，字符串，数据块为单位读写，文件也可按指定的格式进行读写。 
+文件内部的位置指针可指示当前的读写位置，移动该指针可以对文件实现随机读写。
+
+文件的打开
+
+库函数 fopen（） 
+FILE* fopen(char* filename,char* mode); 
+Mode 为打开方式 
+一种是类型：t文本文件（默认），b,binary,二进制，可以附加在上面的打开方式后面（比如wb）,表示以二进制模式打开，默认是以文本模式打开，在Unix和Linux平台，这两者没有区别。 
+另一种是操作类型：
+
+r读取，如果文件不存在，打开失败
+w写入，如果文件不存在，就创建文件，存在就清空文件内容
+a追加数据，append,即在文件末尾写入数据，如果文件不存在，就创建新文件，否则在文件末尾追加数据
+a+对文件可读可写，打开或建立用于更新数据的文件，数据追加到文件尾。
+w+：读写，文件不存在，就创建新文件，存在就清空内容。
+r+:读写(更新数据)，如果文件不存在，打开失败
+每当打开一个文件进行写时，系统会自动创建一个文件输出缓冲区，在执行写操作时数据并不是立即被写到文件中去，而是首先进入这个缓冲区，等到该缓冲区满了或遇到特殊字符（‘\n’）,系统才会将该缓冲区中的数据一次性地写入文件中。 
+如果希望立即刷新文件输出缓冲区，可以调用fflush这个函数，参数为对应的文件指针。
+
+位置指针：
+
+读写的位置，即每次进行读写操作的位置，打开文件后位置指针初始指向文件开头（文件中第0字节处），当进行读写操作后位置会向后（文件末尾方向）移动相应的大小。 
+调用fseek库函数可以人为地改变位置指针的位置。 
+Fseek(fp,0,SEEK_SET); 
+Fseek函数的第二个参数为偏移量，第三个参数为偏移量的参考位置，参考位置有三种情况：
+
+SEEK_SET：文件开头
+SEEK_END：文件末尾
+SEEK_CUR: 当前位置
+Fprintf函数功能：格式化输出到文件，即写入数据到文件
+
+判断是否到了文件末尾调用feof库函数 
+FILE* fp;fp=open(“c:\Exam\01.txt”); 
+因为‘\’是转义字符的起始符号，所以要写成‘\’ 
+注意： 
+1. 读文件要确认文件是否存在，并把读/写当前位置置于文件开头。写文件则检查原来是否有同名文件。有则删除然后新建写入数据，没有则把读/写置于文件开头，从文件开头写入数据。 
+2. 操作字符都是ASCLL的规定，不是所有Ｃ语言系统都能使用， 
+3. 成功返回一个FILE结构体类型的指针；执行失败返回ＮＵＬＬ。 
+一般将返回的指针赋值给一个FILE类型的指针变量，在后续的操作中就可以使用这个指针变量对这个文件进行操作，如：
+
+FILE* fp;
+If(fp=open(“c:\\Exam\\01.txt”,”r”)==NULL)
+{
+        printf(“connot open this file:\n”);
+}
+
+如果可以打开，文件指针fp指向这个打开的文件，这里exit(0)表示正常退出，exit(1)表示异常退出。
+
+文件的关闭
+
+Fclose(); 
+如果文件还没关闭就直接结束运行的程序，缓冲区内没有写入文件的数据就会丢失。所以文件使用后及时关闭。 
+文件关闭后，系统回收文件结构体变量，文件指针也不会指向该文件，此后也无法访问该文件。
+
+文件输入：从文件中输入数据 
+文件输出：输出数据到文件 
+fscanf(文件指针，格式字符串，输入列表)； 
+fprintf(文件指针，格式字符串，输出列表)； 
+例如： 
+fscanf(fp,”%d%s,&i,s”);
+
+读写数据块函数调用的一般格式： 
+fread(buffer,size,count,fp); 
+fwrite(buffer,size,count,fp); 
+其中： 
+buffer 是一个指针，在fread函数中，他表示存放在输入数据的首地址；在fwrite函数中，他表示存放输出数据的首地址。 
+size 表示数据块的字节数 
+count 表示要读写的数据块块数 
+fp 表示文件指针
+
+按字符读写 
+函数fgetc(),fputc(); 
+Int fputs(int ch,FILE* fp); 
+ch是写入文件的字符，fp是ＦＩＬＥ类型的文件指针变量。 
+fputc(‘A’,fp); 
+将指针变量fp指向的文件当前位置写入一个字符常量’A’,并使文件的位置指针下移一个字节。如果写入成功，函数返回该字符，否则返回文件结束符EOF。
+
+按字符串读写的函数fgets(),fputs(); 
+‘\0’不会写入文件中 
+按格式要求读写的函数fprintf(),fscanf(); 
+按数据块读写的函数fread(),fwrite();
+
+ferror函数： 
+ferror(FLIE*)； 
+功能：检查文件是否在用各输入输出函数进行读写时是否出错。返回0表示没出错，否则表示出错。 
+clearrr(FLIE *)； 
+功能：用于清除错误标志和文件结束标志，使他们为0值
+
+标准I/O和文件I/O混合使用 
+标准输入，标准输出和标准错误时三个特殊的文件，这三个文件在我们程序开始运行时系统会自动打开它们，对应的文件指针stdin,stdout,stderr这三个常量（在stdio.h文件中使用的），我们在程序中可以直接使用他们，用完后也不需要显式关闭，系统会自动关闭它们。
+
+主函数参数用于接收命令行参数，如果不需要改功能，主函数形参可以留空 
+Int main(int argc,char* argv[]) 
+主函数形参的意义： 
+Argc:argument count命令行参数个数 
+Argv:argument vector命令行参数构成的字符串数组，每个命令行参数就是它的一个元素，第0个元素为命令本身
+
+在程序外部向程序内部传递数据有三种方法： 
+1.标准输入 
+2.文件输入 
+3.命令行参数
+
+每个文件末尾都有一个文件结束符，它不占实际存储空间 
+文件结束符：EOF，其值为-1，它为文件结束标志 
+只有将EOF读出，feof函数才认为到了文件末尾。 
+
+为什么是-1？因为getchar()函数的返回值通常都介于0～127，这些值对 应标准字符集。但是，如果系统能识别扩展字符集，该函数的返回值可能在 0～255之间。无论哪种情况，-1都不对应任何字符，所以，该值可用于标记 文件结尾。
+while ((ch = getchar()) != EOF)
+
+调用格式： 
+feof(文件指针)： 
+功能：判断文件是否处于文件结束位置，如文件结束，则返回值为1，否则为0.
+
+小结：
+
+fopen(“路径”，”打开方式”) 打开文件 
+fclose(FLIE *) 关闭文件，防止之后被误用 
+fgetc(FLIE *) 从文件中读取一个字符 
+fputc(ch,FLIE*) 把ch代表的字符写入这个文件里 
+fgets(FLIE＊)　从文件中读取一行 
+fputs(FLIE *) 把一行写入文件 
+fprinrtf(FILE *，”格式字符串”，输出表列) 把数据写入文件 
+fscanff(FILE *，”格式字符串”，输入表列)从文件中读取 
+fwrite(地址，sizeof(),n,FLIE*) 把地址中n个sizeof 大的数据写入文件里 
+fread(地址，sizeof(),n,FLIE*) 把文件中n个sizeof 大的数据读到地址里 
+rwind(FLIE＊)　把文件指针拨回文件头 
+feek(FLIE *，x, 0/1/2) 移动文件指针，0代表从头移，1代表从当前位置移，2代表从文件尾移 
+feof(FILE *) 判断是否到了文件末尾
+
+#include <stdio.h>
+
+FILE *stream, *stream1, *stream2;
+
+int main()
+{
+    int numclosed;
+
+    char list[30];              // 存放从文件中读取的数据
+    int  i, numread, numwritten;    // 读取的数目，写入的数目
+
+    // 打开文件data进行读，如果文件不存在，则失败
+    if( (stream1  = fopen( "data", "r" )) == NULL )
+        printf( "打开文件'data'进行读失败\n" );
+    else
+        printf( "打开文件'data'进行读\n" );
+
+    // 打开文件data2进行写
+    if( (stream2 = fopen( "data2", "w+" )) == NULL )
+        printf( "打开文件'data2'进行写失败\n" );
+    else
+        printf( "打开文件'data2'进行写\n" );
+
+    // 使用文本模式打开文件，对文件进行写操作
+    if( (stream = fopen( "fread.out", "w+t" )) != NULL )
+    {
+        // 向文件流中写入25个字符
+        for ( i = 0; i < 25; i++ )
+            list[i] = (char)('z' - i);
+
+        numwritten = fwrite( list, sizeof( char ), 25, stream );
+        printf( "写入 %d 个字符\n", numwritten );
+        fclose( stream );
+    }
+    else
+        printf( "打开文件fread.out时，发生错误，无法写数据到文件中\n" );
+
+    if( (stream = fopen( "fread.out", "r+t" )) != NULL )
+    {   
+        // 从文件中读取25个字符      
+        numread = fread( list, sizeof( char ), 25, stream );
+        printf( "读取的数据个数 = %d\n", numread );
+        printf( "读取的内容为 = %.25s\n", list );
+        fclose( stream );
+    }
+    else
+        printf( "打开文件fread.out时，发生错误，无法从文件中读取数据\n" );
+
+    // 关闭文件
+    if( fclose( stream2 ) )
+        printf( "关闭文件'data2'失败\n" );
+
+    // 关闭其他打开的文件
+    numclosed = fcloseall( );
+    printf( "使用函数fcloseall关闭的文件数目为 : %u\n", numclosed );
+    return 0;
+}
+
+
+目录的操作：
+
+获取当前目录（getcwd） 
+char cwd[300]; 
+getcwd(cwd,sizeof(cwd)); 
+设置当前目录（chdir） 
+chdir(“/home”); 
+创建目录（mkdir） 
+mkdir(“test”,0751); 
+删除目录（rmdir,remove） 
+rmdir(“test”); 
+读取目录： 
+opendir,readdir,closedir,主要用于遍历目录。
+
+#include<unistd.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<dirent.h>
+
+//列出某个目录下的文件列表以及相应 i 节点号，并且当遇到子目录，在其后面标示“（DIR）”字样。
+int main()
+{
+    DIR *dp;
+    struct dirent *dirp;
+    char dirname[]="./";
+    if((dp=opendir(dirname))==NULL){
+        perror("opendir error");
+        exit(1);
+    }
+    while((dirp=readdir(dp))!=NULL){
+        if((strcmp(dirp->d_name,".")==0)||(strcmp(dirp->d_name,"..")==0))
+            continue;
+        printf("%6d:%-19s %5s\n",dirp->d_ino,dirp->d_name,(dirp->d_type==DT_DIR)?("(DIR)"):(""));
+    }
+    return 0;
+}
+
+文件夹遍历：
+
+#include<unistd.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<dirent.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+//传入路径即可
+void show_all(const char* path)
+{
+
+    DIR* dirp=opendir(path); //类似于FILE
+    struct dirent* de=NULL; //dirent 获取文件夹目录属性
+    struct stat st; //stat 获取文件属性
+    char path2[500];
+    while(de=readdir(dirp))
+    {
+        if(strcmp(de->d_name,".")==0 || strcmp(de->d_name,"..")==0) continue;
+        printf("%s\n",de->d_name);
+        strcpy(path2,path);
+        strcat(path2,"/");
+        strcat(path2,de->d_name);
+        stat(path2,&st);
+        if(S_ISDIR(st.st_mode))
+        {
+            show_all(path2);
+        }
+    }
+    closedir(dirp);
+}
