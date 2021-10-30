@@ -1,0 +1,8 @@
+延时处理：
+udelay，mdelay，ndelay，微秒毫秒纳秒 （秒---毫秒ms----微妙us----纳秒ns）
+msleep，ssleep ，毫秒，秒
+
+delay：忙等待：类似软件循环，在等待期间需要占用CPU资源，相对精确
+sleep：睡觉等待，不消耗CPU资源。不是很精确 ，状态切换需要时间
+
+使用建议：微秒级别使用udelay，并且udelay的参数不能超过2000us，

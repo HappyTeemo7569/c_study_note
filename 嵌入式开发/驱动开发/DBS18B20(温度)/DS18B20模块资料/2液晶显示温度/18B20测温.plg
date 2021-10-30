@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Users\Administrator.MFZ-PC\Desktop\Àı³Ì\18B20²âÎÂ\18B20²âÎÂ.uvproj
+Project File Date:  06/01/2011
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling 18B20²âÎÂ.c...
+18B20²âÎÂ.C(208): warning C290: missing return value
+linking...
+Program Size: data=11.1 xdata=0 code=700
+creating hex file from "18B20²âÎÂ"...
+"18B20²âÎÂ" - 0 Error(s), 1 Warning(s).

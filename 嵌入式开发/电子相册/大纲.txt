@@ -1,0 +1,26 @@
+帧缓冲(Frame Buffer):相当于显存，用于存储即将要显示的一帧图像。对应的设备文件为/dev/fb或/dev/fb0
+
+像素点，分辨率
+
+图像编码问题
+位深（8，16，24，32）
+16位位深的显示器系统通常采用RGB565编码方案编码图像数据，高位到低位依次是红绿蓝，人眼对绿色更敏感
+
+板子密码：fa
+
+创建设备文件：
+vi /boot/grub/menu.lst
+quiet后面加 vga=885
+
+ctrl+alt+F2 切换用户，切换到纯字符界面
+
+下载JPG的库，解压
+进入目录
+./configure --host=arm-linux    (不加默认为x86)
+make生成库
+退出目录
+ arm-linux-gcc fb_test.c jpeg.c -o fb_test_arm -I./jpeg-8c -L./jpeg-8c/.libs -ljpeg
+
+栈区数组：Int a[];括号里必须为常量
+堆区数组：int* a = malloc(i*sizeof(int));
+ 
