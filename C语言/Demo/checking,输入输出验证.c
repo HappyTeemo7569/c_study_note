@@ -1,38 +1,38 @@
-// checking.c -- ÊäÈëÑéÖ¤
+ï»¿// checking.c -- è¾“å…¥éªŒè¯
 #include <stdio.h>
 #include <stdbool.h>
 
-// ÑéÖ¤ÊäÈëÊÇÒ»¸öÕûÊı
+// éªŒè¯è¾“å…¥æ˜¯ä¸€ä¸ªæ•´æ•°
 long get_long(void);
-// ÑéÖ¤·¶Î§µÄÉÏÏÂÏŞÊÇ·ñÓĞĞ§
+// éªŒè¯èŒƒå›´çš„ä¸Šä¸‹é™æ˜¯å¦æœ‰æ•ˆ
 bool bad_limits(long begin, long end, long low, long high);
-// ¼ÆËãa¡«bÖ®¼äµÄÕûÊıÆ½·½ºÍ
+// è®¡ç®—aï½bä¹‹é—´çš„æ•´æ•°å¹³æ–¹å’Œ
 double sum_squares(long a, long b);
 
 int main(void)
 {
-	const long MIN = -10000000L;// ·¶Î§µÄÏÂÏŞ
-	const long MAX = +10000000L;// ·¶Î§µÄÉÏÏŞ
-	long start;// ÓÃ»§Ö¸¶¨µÄ·¶Î§×îĞ¡Öµ
-	long stop;// ÓÃ»§Ö¸¶¨µÄ·¶Î§×î´óÖµ
+	const long MIN = -10000000L;// èŒƒå›´çš„ä¸‹é™
+	const long MAX = +10000000L;// èŒƒå›´çš„ä¸Šé™
+	long start;// ç”¨æˆ·æŒ‡å®šçš„èŒƒå›´æœ€å°å€¼
+	long stop;// ç”¨æˆ·æŒ‡å®šçš„èŒƒå›´æœ€å¤§å€¼
 	double answer;
-	printf("ÔÚ·¶Î§£º-10000000µ½+10000000ÄÚ,¼ÆËãÁ½¸öÕûÊıÖ®¼äµÄÆ½·½ºÍ¡£\nÊäÈëÒ»¸ö×îĞ¡Öµ£º(¾ùÎª0±íÊ¾½áÊø³ÌĞò) ");
+	printf("åœ¨èŒƒå›´ï¼š-10000000åˆ°+10000000å†…,è®¡ç®—ä¸¤ä¸ªæ•´æ•°ä¹‹é—´çš„å¹³æ–¹å’Œã€‚\nè¾“å…¥ä¸€ä¸ªæœ€å°å€¼ï¼š(å‡ä¸º0è¡¨ç¤ºç»“æŸç¨‹åº) ");
 	start = get_long();
-	printf("ÊäÈëÒ»¸ö×î´óÖµ£º(¾ùÎª0±íÊ¾½áÊø³ÌĞò) ");
+	printf("è¾“å…¥ä¸€ä¸ªæœ€å¤§å€¼ï¼š(å‡ä¸º0è¡¨ç¤ºç»“æŸç¨‹åº) ");
 	stop = get_long();
 	while (start != 0 || stop != 0)
 	{
 		if (bad_limits(start, stop, MIN, MAX))
-			printf("³¬³ö·¶Î§£¬ÇëÖØĞÂÊäÈë£º\n");
+			printf("è¶…å‡ºèŒƒå›´ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š\n");
 		else
 		{
 			answer = sum_squares(start, stop);
-			printf("´Ó%ldµ½%ldµÄÆ½·½ºÍÊÇ£º%g\n", start, stop, answer);
+			printf("ä»%ldåˆ°%ldçš„å¹³æ–¹å’Œæ˜¯ï¼š%g\n", start, stop, answer);
 		}
-		printf("×îĞ¡Öµ£º(¾ùÎª0±íÊ¾½áÊø³ÌĞò)");
+		printf("æœ€å°å€¼ï¼š(å‡ä¸º0è¡¨ç¤ºç»“æŸç¨‹åº)");
 		start = get_long();
 
-		printf("×î´óÖµ£º(¾ùÎª0±íÊ¾½áÊø³ÌĞò)");
+		printf("æœ€å¤§å€¼ï¼š(å‡ä¸º0è¡¨ç¤ºç»“æŸç¨‹åº)");
 		stop = get_long();
 	}
 	printf("Done.\n");
@@ -45,7 +45,7 @@ long get_long(void)
 	while (scanf("%ld", &input) != 1)
 	{
 		while ((ch = getchar()) != '\n')
-			putchar(ch);       //´¦Àí´íÎóÊäÈë
+			putchar(ch);       //å¤„ç†é”™è¯¯è¾“å…¥
 		printf(" is not an integer.\nPlease enter an ");
 		printf("integer value, such as 25, -178, or 3: ");
 	}

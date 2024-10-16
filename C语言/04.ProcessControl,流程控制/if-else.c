@@ -1,9 +1,9 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #define SPACE ' '
 #include <Windows.h>
 #include <ctype.h>
 
-//ÊäÈë×Ö·û´òÓ¡ºóÒ»¸ö×ÖÄ¸£¨°´ASC±í£©
+//è¾“å…¥å­—ç¬¦æ‰“å°åä¸€ä¸ªå­—æ¯ï¼ˆæŒ‰ASCè¡¨ï¼‰
 int main() 
 {
     char cStr;
@@ -12,12 +12,12 @@ int main()
     cStr = getchar();
     while (cStr != '\n') //while ((cStr = getchar()) != '\n')
     {
-        // if (cStr == SPACE)//Èç¹ûÊÇ¿Õ¸ñ
+        // if (cStr == SPACE)//å¦‚æœæ˜¯ç©ºæ ¼
         //     putchar(cStr);
         // else
         //     putchar(cStr + 1);
              
-        if (isalpha(cStr)) //Èç¹ûÊÇ×ÖÄ¸
+        if (isalpha(cStr)) //å¦‚æœæ˜¯å­—æ¯
         {
             putchar(cStr+1);
             nNumOfStr++;

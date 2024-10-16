@@ -1,32 +1,32 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
 enum Days
 {
-	saturday,                    // saturday = 0 Ä¬ÈÏÖµ
+	saturday,                    // saturday = 0 é»˜è®¤å€¼
 	sunday = 0,                  // sunday = 0
 	monday,                      // monday = 1
 	tuesday,                     // tuesday = 2
-	wednesday,                   // ÒÀ´ÎÀàÍÆ
+	wednesday,                   // ä¾æ¬¡ç±»æ¨
 	thursday,
 	friday
-} today;  // ¶¨ÒåDaysÀàĞÍµÄ±äÁ¿today
+} today;  // å®šä¹‰Daysç±»å‹çš„å˜é‡today
 
 int main()
 {
-	//int  tuesday;           // ´íÎó£¬ÖØ¸´¶¨Òå»òÕß¸Ã¾äÎŞĞ§£¬´òÓ¡Êä³öÊ±±¨Î´¶¨ÒåµÄ´íÎó¡£
+	//int  tuesday;           // é”™è¯¯ï¼Œé‡å¤å®šä¹‰æˆ–è€…è¯¥å¥æ— æ•ˆï¼Œæ‰“å°è¾“å‡ºæ—¶æŠ¥æœªå®šä¹‰çš„é”™è¯¯ã€‚
 	//printf("%d\n", tuesday);
 
 	///////////////////////////////
 
-	enum Days yesterday;      // ÔÚCºÍC++ÖĞ¶¼ºÏ·¨
-	//Days tomorrow;          // Ö»ÔÚC++ÖĞºÏ·¨
-	yesterday = monday;       // Îªyesterday±äÁ¿¸³ÖµÎªMonday
-	//yesterday = 0;          // ´íÎó£¬ÒòÎªÃ»ÓĞ½øĞĞÀàĞÍ×ª»»
-	//yesterday = (Days)0;    // ÓĞĞ§£¬µ«ÊÇ½á¹û²»È·¶¨£¬²»È·¶¨Îªsaturday»¹ÊÇsunday¡£
+	enum Days yesterday;      // åœ¨Cå’ŒC++ä¸­éƒ½åˆæ³•
+	//Days tomorrow;          // åªåœ¨C++ä¸­åˆæ³•
+	yesterday = monday;       // ä¸ºyesterdayå˜é‡èµ‹å€¼ä¸ºMonday
+	//yesterday = 0;          // é”™è¯¯ï¼Œå› ä¸ºæ²¡æœ‰è¿›è¡Œç±»å‹è½¬æ¢
+	//yesterday = (Days)0;    // æœ‰æ•ˆï¼Œä½†æ˜¯ç»“æœä¸ç¡®å®šï¼Œä¸ç¡®å®šä¸ºsaturdayè¿˜æ˜¯sundayã€‚
 
 	/////////////////////////
 
-	//int i = tuesday;          // ÓĞĞ§£¬i = 2
+	//int i = tuesday;          // æœ‰æ•ˆï¼Œi = 2
 	//printf("%d\n",i);
 
 	return 0;

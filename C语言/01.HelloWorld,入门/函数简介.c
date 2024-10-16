@@ -1,23 +1,23 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
-void butler(void); //º¯ÊýÔ­ÐÍ£¨prototype£© 
+void butler(void); //å‡½æ•°åŽŸåž‹ï¼ˆprototypeï¼‰ 
 
 int main(void)
 {
 	printf("I will summon the butler function.\n");
-	butler(); //º¯Êýµ÷ÓÃ£¨function call£©
+	butler(); //å‡½æ•°è°ƒç”¨ï¼ˆfunction callï¼‰
 	printf("Yes. Bring me some tea and writeable CD-ROMS.\n");
 
 	return 0;
 }
 
-//º¯Êý¶¨Òå£¨function definiition£©
+//å‡½æ•°å®šä¹‰ï¼ˆfunction definiitionï¼‰
 void butler(void)       
 {
 	printf("You rang, sir?\n");
 }
 
-//º¯Êý×Ü¹²³öÏÖÁËÈý´Î£ºÉùÃ÷Ô­ÐÍ£¬¶¨Òå£¬µ÷ÓÃ¡£
-//ºÎÊ±µ÷ÓÃbutlerÈ¡¾öÓÚËüÔÚÖ÷º¯ÊýµÄÎ»ÖÃ£¬¶ø²»ÊÇ¶¨ÒåµÄÎ»ÖÃ¡£
-//Èç¹û¶¨ÒåÔÚµ÷ÓÃµÄÇ°Ãæ£¬¿ÉÒÔÊ¡ÂÔÉùÃ÷¡£µ«ÊÇ½¨ÒéÊ¹ÓÃÉÏÎÄµÄË³Ðò£¬ÒòÎª·½±ã²éÑ¯ºÍÊ¹ÓÃ¡£
-//ÎÞÂÛmain·ÅÔÚÄÄÀï£¬¶¼ÊÇ´Ómain¿ªÊ¼Ö´ÐÐ¡£
+//å‡½æ•°æ€»å…±å‡ºçŽ°äº†ä¸‰æ¬¡ï¼šå£°æ˜ŽåŽŸåž‹ï¼Œå®šä¹‰ï¼Œè°ƒç”¨ã€‚
+//ä½•æ—¶è°ƒç”¨butlerå–å†³äºŽå®ƒåœ¨ä¸»å‡½æ•°çš„ä½ç½®ï¼Œè€Œä¸æ˜¯å®šä¹‰çš„ä½ç½®ã€‚
+//å¦‚æžœå®šä¹‰åœ¨è°ƒç”¨çš„å‰é¢ï¼Œå¯ä»¥çœç•¥å£°æ˜Žã€‚ä½†æ˜¯å»ºè®®ä½¿ç”¨ä¸Šæ–‡çš„é¡ºåºï¼Œå› ä¸ºæ–¹ä¾¿æŸ¥è¯¢å’Œä½¿ç”¨ã€‚
+//æ— è®ºmainæ”¾åœ¨å“ªé‡Œï¼Œéƒ½æ˜¯ä»Žmainå¼€å§‹æ‰§è¡Œã€‚
