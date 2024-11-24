@@ -1,4 +1,4 @@
-#include <mysql.h>
+ï»¿#include <mysql.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,10 +6,10 @@ int main()
 {
 	MYSQL mysql;
 	mysql_init(&mysql);
-	MYSQL_ROW row; //ĞĞºÅ£¬»ñÈ¡
-	MYSQL_RES* rs2 = NULL; //½á¹û¼¯
+	MYSQL_ROW row; //è¡Œå·ï¼Œè·å–
+	MYSQL_RES* rs2 = NULL; //ç»“æœé›†
 
-	//Á¬½Ó
+	//è¿æ¥
 	if(!mysql_real_connect(&mysql,"localhost","root","abc123","mydb",0,NULL,0))
 	{
 		fprintf(stderr, "Failed to change user.  Error: %s\n",
@@ -19,21 +19,21 @@ int main()
 	char id[100];
 	char passwd[100];
 	char sql[100];
-	printf("ÇëÊäÈëÓÃ»§ÃûÃÜÂë£¬¿Õ¸ñ¸ô¿ª\n");
+	printf("è¯·è¾“å…¥ç”¨æˆ·åå¯†ç ï¼Œç©ºæ ¼éš”å¼€\n");
 	scanf("%s %s",&id,&passwd);
 	sprintf(sql,"select * from teacher where name = '%s' and passwd = '%s'",id,passwd);
 
-	mysql_query(&mysql,sql); //Ö´ĞĞsqlÓï¾ä
-	rs2 = mysql_use_result(&mysql); //»ñÈ¡½á¹û¼¯£¨ĞèÒªÏÈÖ´ĞĞ£©
+	mysql_query(&mysql,sql); //æ‰§è¡Œsqlè¯­å¥
+	rs2 = mysql_use_result(&mysql); //è·å–ç»“æœé›†ï¼ˆéœ€è¦å…ˆæ‰§è¡Œï¼‰
 	
-	//»ñÈ¡Ã¿Ò»ĞĞ£¬ÓÃÏÂ±ê¿ÉÒÔÈ¡¶ÔÓ¦×Ö¶ÎÄÚÈİ
+	//è·å–æ¯ä¸€è¡Œï¼Œç”¨ä¸‹æ ‡å¯ä»¥å–å¯¹åº”å­—æ®µå†…å®¹
 	while(row = mysql_fetch_row(rs1)) 
 	{
 		printf("%s %s\n",row[0],row[1]);
 	} 
 
-	mysql_free_result(rs2); //ÊÍ·Å½á¹û¼¯
-	mysql_close(&mysql); //¶Ï¿ªÁ¬½Ó
+	mysql_free_result(rs2); //é‡Šæ”¾ç»“æœé›†
+	mysql_close(&mysql); //æ–­å¼€è¿æ¥
 
 }
 
@@ -42,7 +42,7 @@ int main()
 	{    
 		int sno;
 		char name[100];
-		printf("Ñ§ÉúÇëÊäÈëÑ§ºÅĞÕÃû£¬¿Õ¸ñ¸ô¿ª\n");
+		printf("å­¦ç”Ÿè¯·è¾“å…¥å­¦å·å§“åï¼Œç©ºæ ¼éš”å¼€\n");
 		scanf("%d %s",&sno,&name);
 		char a3[100];
 		sprintf(a3,"select * from student where sno = %d and name = '%s'",sno,name);
@@ -59,7 +59,7 @@ int main()
 		{
 			while(1)
 			{
-				printf("1ÊÇ²éÑ¯Ñ§ÉúĞÅÏ¢£¬2ÊÇ²éÑ¯¿¼ÊÔĞÅÏ¢£¬3ÊÇÍË³ö\n");
+				printf("1æ˜¯æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯ï¼Œ2æ˜¯æŸ¥è¯¢è€ƒè¯•ä¿¡æ¯ï¼Œ3æ˜¯é€€å‡º\n");
 				int c2;        
 				scanf("%d",&c2);
 				switch(c2)
@@ -70,12 +70,12 @@ int main()
 				}
 			}
 		}
-		else printf("Ñ§ºÅ»òÕßĞÕÃû´íÎó£¡\n");
+		else printf("å­¦å·æˆ–è€…å§“åé”™è¯¯ï¼\n");
 		mysql_free_result(rs2);
 	}
 	else 
 	{
-		printf("ÊäÈë´íÎó£¡\n");
+		printf("è¾“å…¥é”™è¯¯ï¼\n");
 	}
 	mysql_close(&mysql);    
 
@@ -95,7 +95,7 @@ int look()
 	char table[100];
 	mysql_query(&mysql,"set names utf8");
 
-	printf("ÊäÈë±íÃû£º\n");
+	printf("è¾“å…¥è¡¨åï¼š\n");
 	scanf("%s",&table);
 
 	char str1[100];
@@ -115,7 +115,7 @@ int look()
 		printf("%s %s\n",row[0],row[1]);
 		cnt++;
 	} 
-	printf("¹²ÓĞ%d¸öĞÅÏ¢£¡\n",cnt);
+	printf("å…±æœ‰%dä¸ªä¿¡æ¯ï¼\n",cnt);
 	mysql_free_result(rs1);
 
 	mysql_close(&mysql);
@@ -133,17 +133,17 @@ int add()
 	}
 	int sno;
 	char name[100];
-	printf("ÇëÊäÈë´ı²åÈëµÄÑ§ÉúĞÅÏ¢£ºÑ§ºÅ£¬ĞÕÃû\n");
+	printf("è¯·è¾“å…¥å¾…æ’å…¥çš„å­¦ç”Ÿä¿¡æ¯ï¼šå­¦å·ï¼Œå§“å\n");
 	scanf("%d %s",&sno,name);
 	char sql[100];
 	sprintf(sql,"insert into student (sno,name) values (%d,'%s')",sno,name);
 	if(!mysql_query(&mysql,sql))
 	{
-		printf("²åÈëÑ§ÉúĞÅÏ¢³É¹¦£¡\n");
+		printf("æ’å…¥å­¦ç”Ÿä¿¡æ¯æˆåŠŸï¼\n");
 	}    
 	else
 	{
-		fprintf(stderr,"²åÈëÊ§°Ü£º%s\n",mysql_error(&mysql));
+		fprintf(stderr,"æ’å…¥å¤±è´¥ï¼š%s\n",mysql_error(&mysql));
 	}
 	mysql_close(&mysql);
 	return 0;
@@ -158,7 +158,7 @@ int delete()
 		fprintf(stderr, "Failed to change user.  Error: %s\n",
 			mysql_error(&mysql));
 	}
-	printf("°´Ñ§ºÅÉ¾³ı°´1£¬°´ĞÕÃûÉ¾³ı°´2\n");
+	printf("æŒ‰å­¦å·åˆ é™¤æŒ‰1ï¼ŒæŒ‰å§“ååˆ é™¤æŒ‰2\n");
 	int dot;
 	scanf("%d",&dot);
 
@@ -168,23 +168,23 @@ int delete()
 
 	if(dot=1)
 	{
-		printf("ÇëÊäÈë´ıÉ¾³ıµÄÑ§ÉúÑ§ºÅ\n");
+		printf("è¯·è¾“å…¥å¾…åˆ é™¤çš„å­¦ç”Ÿå­¦å·\n");
 		scanf("%d",&sno);
 		sprintf(str2,"delete from student where sno = %d",sno);
 	}
 	else
 	{
-		printf("ÇëÊäÈë´ıÉ¾³ıµÄÑ§ÉúĞÕÃû\n");
+		printf("è¯·è¾“å…¥å¾…åˆ é™¤çš„å­¦ç”Ÿå§“å\n");
 		scanf("%s",&name);
 		sprintf(str2,"delete from student where name = '%s'",name);
 	}
 	if(mysql_query(&mysql,str2))
 	{
-		fprintf(stderr,"É¾³ıÊ§°Ü£º%s\n",mysql_error(&mysql));
+		fprintf(stderr,"åˆ é™¤å¤±è´¥ï¼š%s\n",mysql_error(&mysql));
 	}
 	else
 	{
-		printf("É¾³ıÁË %d ÌõÑ§ÉúĞÅÏ¢\n",mysql_affected_rows(&mysql));
+		printf("åˆ é™¤äº† %d æ¡å­¦ç”Ÿä¿¡æ¯\n",mysql_affected_rows(&mysql));
 	}
 	mysql_close(&mysql);
 	return 0;
@@ -199,7 +199,7 @@ int change()
 		fprintf(stderr, "Failed to change user.  Error: %s\n",
 			mysql_error(&mysql));
 	}
-	printf("¸ü¸ÄÑ§ºÅ°´1£¬¸ü¸ÄĞÕÃû°´2\n");
+	printf("æ›´æ”¹å­¦å·æŒ‰1ï¼Œæ›´æ”¹å§“åæŒ‰2\n");
 	int dot;
 	scanf("%d",&dot);
 
@@ -211,28 +211,28 @@ int change()
 
 	if(dot=1)
 	{
-		printf("ÇëÊäÈë´ı¸ü¸ÄµÄÑ§ÉúÑ§ºÅ\n");
+		printf("è¯·è¾“å…¥å¾…æ›´æ”¹çš„å­¦ç”Ÿå­¦å·\n");
 		scanf("%d",&sno);
-		printf("ÇëÊäÈëÏë¸Ä³ÉµÄÕıÈ·Ñ§ºÅ\n");
+		printf("è¯·è¾“å…¥æƒ³æ”¹æˆçš„æ­£ç¡®å­¦å·\n");
 		scanf("%d",&sno2);
 		sprintf(str2,"update student set sno = %d where sno = %d",sno2,sno);
 	}
 	else
 	{
-		printf("ÇëÊäÈë´ı¸ü¸ÄµÄÑ§ÉúĞÕÃû\n");
+		printf("è¯·è¾“å…¥å¾…æ›´æ”¹çš„å­¦ç”Ÿå§“å\n");
 		scanf("%s",&name);
-		printf("ÇëÊäÈëÏë¸Ä³ÉµÄÕıÈ·Ñ§ÉúĞÕÃû\n");
+		printf("è¯·è¾“å…¥æƒ³æ”¹æˆçš„æ­£ç¡®å­¦ç”Ÿå§“å\n");
 		scanf("%s",&name2);
 		sprintf(str2,"update student set name = '%s' where name = '%s'",name2,name);
 	}
 
 	if(mysql_query(&mysql,str2))
 	{
-		fprintf(stderr,"¸ü¸ÄÊ§°Ü£º%s\n",mysql_error(&mysql));
+		fprintf(stderr,"æ›´æ”¹å¤±è´¥ï¼š%s\n",mysql_error(&mysql));
 	}
 	else
 	{
-		printf("¸ü¸ÄÁË %d ÌõÑ§ÉúĞÅÏ¢\n",mysql_affected_rows(&mysql));
+		printf("æ›´æ”¹äº† %d æ¡å­¦ç”Ÿä¿¡æ¯\n",mysql_affected_rows(&mysql));
 	}
 	mysql_close(&mysql);            
 	return 0;
@@ -251,7 +251,7 @@ int test()
 	int sno2;
 	mysql_query(&mysql,"set names utf8");
 
-	printf("ÊäÈëÑ§ºÅ£º\n");
+	printf("è¾“å…¥å­¦å·ï¼š\n");
 	scanf("%d",&sno2);
 
 	char str5[1000];
@@ -271,7 +271,7 @@ int test()
 		printf("%s %s %s\n",row[0],row[1],row[2]);
 		cnt2++;
 	} 
-	printf("¹²ÓĞ%d¸öĞÅÏ¢£¡\n",cnt2);
+	printf("å…±æœ‰%dä¸ªä¿¡æ¯ï¼\n",cnt2);
 	mysql_free_result(rs2);
 
 	mysql_close(&mysql);

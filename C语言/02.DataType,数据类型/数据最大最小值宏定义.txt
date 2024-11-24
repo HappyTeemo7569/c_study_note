@@ -1,57 +1,57 @@
-ºê	Öµ	ÃèÊö
-CHAR_BIT	8	¶¨ÒåÒ»¸ö×Ö½ÚµÄ±ÈÌØÊý¡£
-SCHAR_MIN	-128	¶¨ÒåÒ»¸öÓÐ·ûºÅ×Ö·ûµÄ×îÐ¡Öµ¡£
-SCHAR_MAX	127	¶¨ÒåÒ»¸öÓÐ·ûºÅ×Ö·ûµÄ×î´óÖµ¡£
-UCHAR_MAX	255	¶¨ÒåÒ»¸öÎÞ·ûºÅ×Ö·ûµÄ×î´óÖµ¡£
-CHAR_MIN	0	¶¨ÒåÀàÐÍ char µÄ×îÐ¡Öµ£¬Èç¹û char ±íÊ¾¸ºÖµ£¬ÔòËüµÄÖµµÈÓÚ SCHAR_MIN£¬·ñÔòµÈÓÚ 0¡£
-CHAR_MAX	127	¶¨ÒåÀàÐÍ char µÄ×î´óÖµ£¬Èç¹û char ±íÊ¾¸ºÖµ£¬ÔòËüµÄÖµµÈÓÚ SCHAR_MAX£¬·ñÔòµÈÓÚ UCHAR_MAX¡£
-MB_LEN_MAX	1	¶¨Òå¶à×Ö½Ú×Ö·ûÖÐµÄ×î´ó×Ö½ÚÊý¡£
-SHRT_MIN	-32768	¶¨ÒåÒ»¸ö¶ÌÕûÐÍµÄ×îÐ¡Öµ¡£
-SHRT_MAX	+32767	¶¨ÒåÒ»¸ö¶ÌÕûÐÍµÄ×î´óÖµ¡£
-USHRT_MAX	65535	¶¨ÒåÒ»¸öÎÞ·ûºÅ¶ÌÕûÐÍµÄ×î´óÖµ¡£
-INT_MIN	    -32768	¶¨ÒåÒ»¸öÕûÐÍµÄ×îÐ¡Öµ¡£
-INT_MAX	    +32767	¶¨ÒåÒ»¸öÕûÐÍµÄ×î´óÖµ¡£
-UINT_MAX	65535	¶¨ÒåÒ»¸öÎÞ·ûºÅÕûÐÍµÄ×î´óÖµ¡£
-LONG_MIN	-2147483648	¶¨ÒåÒ»¸ö³¤ÕûÐÍµÄ×îÐ¡Öµ¡£
-LONG_MAX	+2147483647	¶¨ÒåÒ»¸ö³¤ÕûÐÍµÄ×î´óÖµ¡£
-ULONG_MAX	4294967295	¶¨ÒåÒ»¸öÎÞ·ûºÅ³¤ÕûÐÍµÄ×î´óÖµ¡£
+ï»¿å®	å€¼	æè¿°
+CHAR_BIT	8	å®šä¹‰ä¸€ä¸ªå­—èŠ‚çš„æ¯”ç‰¹æ•°ã€‚
+SCHAR_MIN	-128	å®šä¹‰ä¸€ä¸ªæœ‰ç¬¦å·å­—ç¬¦çš„æœ€å°å€¼ã€‚
+SCHAR_MAX	127	å®šä¹‰ä¸€ä¸ªæœ‰ç¬¦å·å­—ç¬¦çš„æœ€å¤§å€¼ã€‚
+UCHAR_MAX	255	å®šä¹‰ä¸€ä¸ªæ— ç¬¦å·å­—ç¬¦çš„æœ€å¤§å€¼ã€‚
+CHAR_MIN	0	å®šä¹‰ç±»åž‹ char çš„æœ€å°å€¼ï¼Œå¦‚æžœ char è¡¨ç¤ºè´Ÿå€¼ï¼Œåˆ™å®ƒçš„å€¼ç­‰äºŽ SCHAR_MINï¼Œå¦åˆ™ç­‰äºŽ 0ã€‚
+CHAR_MAX	127	å®šä¹‰ç±»åž‹ char çš„æœ€å¤§å€¼ï¼Œå¦‚æžœ char è¡¨ç¤ºè´Ÿå€¼ï¼Œåˆ™å®ƒçš„å€¼ç­‰äºŽ SCHAR_MAXï¼Œå¦åˆ™ç­‰äºŽ UCHAR_MAXã€‚
+MB_LEN_MAX	1	å®šä¹‰å¤šå­—èŠ‚å­—ç¬¦ä¸­çš„æœ€å¤§å­—èŠ‚æ•°ã€‚
+SHRT_MIN	-32768	å®šä¹‰ä¸€ä¸ªçŸ­æ•´åž‹çš„æœ€å°å€¼ã€‚
+SHRT_MAX	+32767	å®šä¹‰ä¸€ä¸ªçŸ­æ•´åž‹çš„æœ€å¤§å€¼ã€‚
+USHRT_MAX	65535	å®šä¹‰ä¸€ä¸ªæ— ç¬¦å·çŸ­æ•´åž‹çš„æœ€å¤§å€¼ã€‚
+INT_MIN	    -32768	å®šä¹‰ä¸€ä¸ªæ•´åž‹çš„æœ€å°å€¼ã€‚
+INT_MAX	    +32767	å®šä¹‰ä¸€ä¸ªæ•´åž‹çš„æœ€å¤§å€¼ã€‚
+UINT_MAX	65535	å®šä¹‰ä¸€ä¸ªæ— ç¬¦å·æ•´åž‹çš„æœ€å¤§å€¼ã€‚
+LONG_MIN	-2147483648	å®šä¹‰ä¸€ä¸ªé•¿æ•´åž‹çš„æœ€å°å€¼ã€‚
+LONG_MAX	+2147483647	å®šä¹‰ä¸€ä¸ªé•¿æ•´åž‹çš„æœ€å¤§å€¼ã€‚
+ULONG_MAX	4294967295	å®šä¹‰ä¸€ä¸ªæ— ç¬¦å·é•¿æ•´åž‹çš„æœ€å¤§å€¼ã€‚
 
 
 FLT_RADIX 2	
-Õâ¸öºê¶¨ÒåÁËÖ¸Êý±íÊ¾µÄ»ùÊý¡£»ùÊý 2 ±íÊ¾¶þ½øÖÆ£¬»ùÊý 10 ±íÊ¾Ê®½øÖÆ£¬»ùÊý 16 ±íÊ¾Ê®Áù½øÖÆ¡£
+è¿™ä¸ªå®å®šä¹‰äº†æŒ‡æ•°è¡¨ç¤ºçš„åŸºæ•°ã€‚åŸºæ•° 2 è¡¨ç¤ºäºŒè¿›åˆ¶ï¼ŒåŸºæ•° 10 è¡¨ç¤ºåè¿›åˆ¶ï¼ŒåŸºæ•° 16 è¡¨ç¤ºåå…­è¿›åˆ¶ã€‚
 FLT_MANT_DIG
 DBL_MANT_DIG
 LDBL_MANT_DIG
-ÕâÐ©ºê¶¨ÒåÁË FLT_RADIX »ùÊýÖÐµÄÎ»Êý¡£
+è¿™äº›å®å®šä¹‰äº† FLT_RADIX åŸºæ•°ä¸­çš„ä½æ•°ã€‚
 FLT_DIG 6
 DBL_DIG 10
 LDBL_DIG 10
-ÕâÐ©ºê¶¨ÒåÁËÉáÈëºó²»»á¸Ä±ä±íÊ¾µÄÊ®½øÖÆÊý×ÖµÄ×î´óÖµ£¨»ùÊý 10£©¡£
+è¿™äº›å®å®šä¹‰äº†èˆå…¥åŽä¸ä¼šæ”¹å˜è¡¨ç¤ºçš„åè¿›åˆ¶æ•°å­—çš„æœ€å¤§å€¼ï¼ˆåŸºæ•° 10ï¼‰ã€‚
 FLT_MIN_EXP
 DBL_MIN_EXP
 LDBL_MIN_EXP
-ÕâÐ©ºê¶¨ÒåÁË»ùÊýÎª FLT_RADIX Ê±µÄÖ¸ÊýµÄ×îÐ¡¸ºÕûÊýÖµ¡£
+è¿™äº›å®å®šä¹‰äº†åŸºæ•°ä¸º FLT_RADIX æ—¶çš„æŒ‡æ•°çš„æœ€å°è´Ÿæ•´æ•°å€¼ã€‚
 FLT_MIN_10_EXP -37
 DBL_MIN_10_EXP -37
 LDBL_MIN_10_EXP -37
-ÕâÐ©ºê¶¨ÒåÁË»ùÊýÎª 10 Ê±µÄÖ¸ÊýµÄ×îÐ¡¸ºÕûÊýÖµ¡£
+è¿™äº›å®å®šä¹‰äº†åŸºæ•°ä¸º 10 æ—¶çš„æŒ‡æ•°çš„æœ€å°è´Ÿæ•´æ•°å€¼ã€‚
 FLT_MAX_EXP
 DBL_MAX_EXP
 LDBL_MAX_EXP
-ÕâÐ©ºê¶¨ÒåÁË»ùÊýÎª FLT_RADIX Ê±µÄÖ¸ÊýµÄ×î´óÕûÊýÖµ¡£
+è¿™äº›å®å®šä¹‰äº†åŸºæ•°ä¸º FLT_RADIX æ—¶çš„æŒ‡æ•°çš„æœ€å¤§æ•´æ•°å€¼ã€‚
 FLT_MAX_10_EXP +37
 DBL_MAX_10_EXP +37
 LDBL_MAX_10_EXP +37
-ÕâÐ©ºê¶¨ÒåÁË»ùÊýÎª 10 Ê±µÄÖ¸ÊýµÄ×î´óÕûÊýÖµ¡£
+è¿™äº›å®å®šä¹‰äº†åŸºæ•°ä¸º 10 æ—¶çš„æŒ‡æ•°çš„æœ€å¤§æ•´æ•°å€¼ã€‚
 FLT_MAX 1E+37
 DBL_MAX 1E+37
 LDBL_MAX 1E+37
-ÕâÐ©ºê¶¨Òå×î´óµÄÓÐÏÞ¸¡µãÖµ¡£
+è¿™äº›å®å®šä¹‰æœ€å¤§çš„æœ‰é™æµ®ç‚¹å€¼ã€‚
 FLT_EPSILON 1E-5
 DBL_EPSILON 1E-9
 LDBL_EPSILON 1E-9
-ÕâÐ©ºê¶¨ÒåÁË¿É±íÊ¾µÄ×îÐ¡ÓÐÐ§Êý×Ö¡£
+è¿™äº›å®å®šä¹‰äº†å¯è¡¨ç¤ºçš„æœ€å°æœ‰æ•ˆæ•°å­—ã€‚
 FLT_MIN 1E-37
 DBL_MIN 1E-37
 LDBL_MIN 1E-37
-ÕâÐ©ºê¶¨ÒåÁË×îÐ¡µÄ
+è¿™äº›å®å®šä¹‰äº†æœ€å°çš„

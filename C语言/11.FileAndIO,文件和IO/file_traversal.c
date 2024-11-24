@@ -1,4 +1,4 @@
-#include<unistd.h>
+ï»¿#include<unistd.h>
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -10,9 +10,9 @@
 void show_all(const char* path)
 {
 
-	DIR* dirp=opendir(path); //ÀàËÆÓÚFILE
-	struct dirent* de=NULL; //dirent »ñÈ¡ÎÄ¼ş¼ĞÄ¿Â¼ÊôĞÔ
-	struct stat st; //stat »ñÈ¡ÎÄ¼şÊôĞÔ
+	DIR* dirp=opendir(path); //ç±»ä¼¼äºFILE
+	struct dirent* de=NULL; //dirent è·å–æ–‡ä»¶å¤¹ç›®å½•å±æ€§
+	struct stat st; //stat è·å–æ–‡ä»¶å±æ€§
 	char path2[500];
 	while(de=readdir(dirp))
 	{
@@ -48,11 +48,11 @@ int main()
 // 
 // 			if(S_ISDIR(st.st_mode))
 // 			{
-// 				printf("Ä¿Â¼\n");
+// 				printf("ç›®å½•\n");
 // 			}
 // 			else
 // 			{
-// 				printf("·ÇÄ¿Â¼\n");
+// 				printf("éç›®å½•\n");
 // 			}
 // 		}
 // 	}

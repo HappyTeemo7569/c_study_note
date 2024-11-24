@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
 int main()
 {
@@ -11,9 +11,9 @@ int main()
 
 	printf("char:%d Bytes\nshort int:%d Bytes\nint:%d Bytes\nlong int:%d Bytes\ndouble:%d Bytes\nsfloat:%d Bytes\n",
 			sizeof(c1),sizeof(i1++),sizeof(i2++),sizeof(i3++),sizeof(d1),sizeof(f1));
-	//sizeof£¨£©ÔËËã·û¿ÉÒÔÇóÒ»¸ö±äÁ¿£¬ÀàĞÍ£¬³£Á¿µÈËùÕ¼µÄ´æ´¢¿Õ¼ä¡£»áÖ´ĞĞÀ¨ºÅÖĞµÄ¼ÆËã£¬µ«ÊÇ²»»áÓĞ½á¹û¡£
-	printf("×Ö·ûÊÇÓÃASCÂë´æ´¢µÄ£º%c\n", c1);
-	printf("sizeof(i++)ºóiµÄÖµ£º%d,%d,%d\n",i1,i2,i3);
+	//sizeofï¼ˆï¼‰è¿ç®—ç¬¦å¯ä»¥æ±‚ä¸€ä¸ªå˜é‡ï¼Œç±»å‹ï¼Œå¸¸é‡ç­‰æ‰€å çš„å­˜å‚¨ç©ºé—´ã€‚ä¼šæ‰§è¡Œæ‹¬å·ä¸­çš„è®¡ç®—ï¼Œä½†æ˜¯ä¸ä¼šæœ‰ç»“æœã€‚
+	printf("å­—ç¬¦æ˜¯ç”¨ASCç å­˜å‚¨çš„ï¼š%c\n", c1);
+	printf("sizeof(i++)åiçš„å€¼ï¼š%d,%d,%d\n",i1,i2,i3);
 	printf("\n****************************************\n\n");
 	
 	int num = 0;
@@ -24,23 +24,23 @@ int main()
 	return 0;
 	printf("\n****************************************\n\n");
 
-	//½øÖÆÏÔÊ¾
+	//è¿›åˆ¶æ˜¾ç¤º
 	int x = 100;
-	printf("½øÖÆÏÔÊ¾£º100\n");
+	printf("è¿›åˆ¶æ˜¾ç¤ºï¼š100\n");
 	printf("dec = %d; octal = %o; hex = %x\n", x, x, x);
 	printf("dec = %d; octal = %#o; hex = %#x\n", x, x, x);
 	printf("\n****************************************\n\n");
 
-	//Òç³ö
-	printf("Òç³ö\n");
+	//æº¢å‡º
+	printf("æº¢å‡º\n");
 	int i = 2147483647;
 	unsigned int j = 4294967295;
 	printf("%d %d %d\n", i, i+1, i+2);
-	printf("%u %u %u\n", j, j+1, j+2);//Òç³öºó»á´Ó×îĞ¡µÄ¿ªÊ¼
+	printf("%u %u %u\n", j, j+1, j+2);//æº¢å‡ºåä¼šä»æœ€å°çš„å¼€å§‹
 	printf("\n****************************************\n\n");
 
-	//hĞŞÊÎ·û¿ÉÒÔÏÔÊ¾½Ï´óÕûÊı±»½Ø¶Ï³É short ÀàĞÍÖµ
-	unsigned int un = 3000000000; /* intÎª32Î»ºÍshortÎª16Î»µÄÏµÍ³ */
+	//hä¿®é¥°ç¬¦å¯ä»¥æ˜¾ç¤ºè¾ƒå¤§æ•´æ•°è¢«æˆªæ–­æˆ short ç±»å‹å€¼
+	unsigned int un = 3000000000; /* intä¸º32ä½å’Œshortä¸º16ä½çš„ç³»ç»Ÿ */
 	short end = 200;
 	long big = 65537;
 	long long verybig = 12345678908642;
@@ -50,12 +50,12 @@ int main()
 	printf("verybig= %lld and not %ld\n", verybig, verybig);
 	printf("\n****************************************\n\n");
 
-	//Ö¸ÊıÏÔÊ¾
+	//æŒ‡æ•°æ˜¾ç¤º
 	float aboat = 32000.0;
 	double abet = 2.14e9;
 	long double dip = 5.32e-5;
 	printf("%f can be written %e\n", aboat, aboat);
-	// ÏÂÒ»ĞĞÒªÇó±àÒëÆ÷Ö§³ÖC99»òÆäÖĞµÄÏà¹ØÌØĞÔ
+	// ä¸‹ä¸€è¡Œè¦æ±‚ç¼–è¯‘å™¨æ”¯æŒC99æˆ–å…¶ä¸­çš„ç›¸å…³ç‰¹æ€§
 	printf("And it's %a in hexadecimal, powers of 2 notation\n",aboat);
 	printf("%f can be written %e\n", abet, abet);
 	printf("%Lf can be written %Le\n", dip, dip);
