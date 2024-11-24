@@ -21,7 +21,6 @@ int main()
 	printf("sizeof(3 + 5) is %d\n", sizeof(3 + 5));
 	printf("sizeof(num = 7) is %d\n", sizeof(num = 7));
 	printf("num is %d\n", num);
-	return 0;
 	printf("\n****************************************\n\n");
 
 	//进制显示
