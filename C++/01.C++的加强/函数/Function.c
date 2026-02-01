@@ -1,26 +1,26 @@
 /*
-ÔÚCÓïÑÔÖÐ£¬ÖØ¸´¶¨Òå¶à¸öÍ¬ÃûµÄÈ«¾Ö±äÁ¿ÊÇºÏ·¨µÄ£¬¶à¸öÍ¬ÃûµÄÈ«¾Ö±äÁ¿×îÖÕ»á±»Á´½Óµ½È«¾ÖÊý¾ÝÇøµÄÍ¬Ò»¸öµØÖ·¿Õ¼äÉÏ£¬C++²»ÔÊÐí¶¨Òå¶à¸öÍ¬ÃûµÄÈ«¾Ö±äÁ¿¡£
+åœ¨Cè¯­è¨€ä¸­ï¼Œé‡å¤å®šä¹‰å¤šä¸ªåŒåçš„å…¨å±€å˜é‡æ˜¯åˆæ³•çš„ï¼Œå¤šä¸ªåŒåçš„å…¨å±€å˜é‡æœ€ç»ˆä¼šè¢«é“¾æŽ¥åˆ°å…¨å±€æ•°æ®åŒºçš„åŒä¸€ä¸ªåœ°å€ç©ºé—´ä¸Šï¼ŒC++ä¸å…è®¸å®šä¹‰å¤šä¸ªåŒåçš„å…¨å±€å˜é‡ã€‚
 
-C++ÖÐËùÓÐµÄ±äÁ¿ºÍº¯Êý¶¼±ØÐëÓÐÀàÐÍ£¬CÓïÑÔÖÐµÄÄ¬ÈÏÀàÐÍÔÚC++ÖÐÊÇ²»ºÏ·¨µÄ¡£
+C++ä¸­æ‰€æœ‰çš„å˜é‡å’Œå‡½æ•°éƒ½å¿…é¡»æœ‰ç±»åž‹ï¼ŒCè¯­è¨€ä¸­çš„é»˜è®¤ç±»åž‹åœ¨C++ä¸­æ˜¯ä¸åˆæ³•çš„ã€‚
 
-ÔÚCÓïÑÔÖÐ
-int f( )£»±íÊ¾·µ»ØÖµÎªint£¬½ÓÊÜÈÎÒâ²ÎÊýµÄº¯Êý
-int f(void)£»±íÊ¾·µ»ØÖµÎªintµÄÎÞ²Îº¯Êý
+åœ¨Cè¯­è¨€ä¸­
+int f( )ï¼›è¡¨ç¤ºè¿”å›žå€¼ä¸ºintï¼ŒæŽ¥å—ä»»æ„å‚æ•°çš„å‡½æ•°
+int f(void)ï¼›è¡¨ç¤ºè¿”å›žå€¼ä¸ºintçš„æ— å‚å‡½æ•°
 
-C++ÖÐ
-int f( );ºÍint f(void)¾ßÓÐÏàÍ¬µÄÒâÒå£¬¶¼±íÊ¾·µ»ØÖµÎªintµÄÎÞ²Îº¯Êý
-C++¸ü¼ÓÇ¿µ÷ÀàÐÍ£¬ÈÎÒâµÄ³ÌÐòÔªËØ¶¼±ØÐëÏÔÊ¾Ö¸Ã÷ÀàÐÍ
+C++ä¸­
+int f( );å’Œint f(void)å…·æœ‰ç›¸åŒçš„æ„ä¹‰ï¼Œéƒ½è¡¨ç¤ºè¿”å›žå€¼ä¸ºintçš„æ— å‚å‡½æ•°
+C++æ›´åŠ å¼ºè°ƒç±»åž‹ï¼Œä»»æ„çš„ç¨‹åºå…ƒç´ éƒ½å¿…é¡»æ˜¾ç¤ºæŒ‡æ˜Žç±»åž‹
 */
 
-//CÓïÑÔÖÐ
+//Cè¯­è¨€ä¸­
 #include <stdio.h>
 
-f(i)//Ä¬ÈÏ²ÎÊýÀàÐÍÎªint
+f(i)//é»˜è®¤å‚æ•°ç±»åž‹ä¸ºint
 {
 	printf("i = %d\n", i);
 }
 
-g()//Ä¬ÈÏ·µ»ØÖµÎªint
+g()//é»˜è®¤è¿”å›žå€¼ä¸ºint
 {
 	return 5;
 }
@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-//Ä¬ÈÏ²ÎÊýºÍÕ¼Î»·û£º
-//C++ÖÐº¯ÊýÉùÃ÷Ê±Ã»ÓÐÌá¹©Öµ£¬ÏµÍ³Ôò»áÌá¹©Ò»¸öÄ¬ÈÏÖµ¡£
+//é»˜è®¤å‚æ•°å’Œå ä½ç¬¦ï¼š
+//C++ä¸­å‡½æ•°å£°æ˜Žæ—¶æ²¡æœ‰æä¾›å€¼ï¼Œç³»ç»Ÿåˆ™ä¼šæä¾›ä¸€ä¸ªé»˜è®¤å€¼ã€‚
 
 void Func(int i = 1, float f = 2.0f, double d = 3.0)
 {
@@ -52,7 +52,7 @@ int main(void)
 	Func(10, 20.0f, 30.0) ; // 10, 20, 30return 0 ;
 }
 
-//²ÎÊý¿ÉÒÔÊÇ±í´ïÊ½
+//å‚æ•°å¯ä»¥æ˜¯è¡¨è¾¾å¼
 class Test
 {
 public:
@@ -67,18 +67,18 @@ public:
 	}
 } ;
 
-//Ö»ÓÐºó²¿·Ö²ÎÊý¿ÉÒÔ¡£Èç¹ûÄ³¸ö²ÎÊýÊÇÄ¬ÈÏ²ÎÊý£¬ÔòºóÃæµÄ²ÎÊý¶¼±ØÐëÊÇÄ¬ÈÏ²ÎÊý¡£
-//ÏÂÃæÁ½ÖÖÇé¿ö¶¼¿ÉÒÔ
+//åªæœ‰åŽéƒ¨åˆ†å‚æ•°å¯ä»¥ã€‚å¦‚æžœæŸä¸ªå‚æ•°æ˜¯é»˜è®¤å‚æ•°ï¼Œåˆ™åŽé¢çš„å‚æ•°éƒ½å¿…é¡»æ˜¯é»˜è®¤å‚æ•°ã€‚
+//ä¸‹é¢ä¸¤ç§æƒ…å†µéƒ½å¯ä»¥
 void Func(int i, float f = 2.0f, double d = 3.0) ;
 void Func(int i, float f, double d = 3.0) ;
-//µ«ÊÇÕâÑù¾Í²»¿ÉÒÔ
+//ä½†æ˜¯è¿™æ ·å°±ä¸å¯ä»¥
 void Func(int i, float f = 2.0f, double d) ;
 
 ///////////////////////////////////////////////////////////
 /*
-º¯ÊýÕ¼Î»²ÎÊý
-Õ¼Î»²ÎÊýÖ»ÓÐ²ÎÊýÀàÐÍÉùÃ÷£¬¶øÃ»ÓÐ²ÎÊýÃûÉùÃ÷
-Ò»°ãÇé¿öÏÂ£¬ÔÚº¯ÊýÌåÄÚ²¿ÎÞ·¨Ê¹ÓÃÕ¼Î»²ÎÊý
+å‡½æ•°å ä½å‚æ•°
+å ä½å‚æ•°åªæœ‰å‚æ•°ç±»åž‹å£°æ˜Žï¼Œè€Œæ²¡æœ‰å‚æ•°åå£°æ˜Ž
+ä¸€èˆ¬æƒ…å†µä¸‹ï¼Œåœ¨å‡½æ•°ä½“å†…éƒ¨æ— æ³•ä½¿ç”¨å ä½å‚æ•°
 */
 
 int func(int a, int b, int )
@@ -88,8 +88,8 @@ int func(int a, int b, int )
 
 int main01(int argc, char *argv[])
 {
-	printf("func(1, 2, 3) = %d\n", func(1, 2, 3)); // ¿ÉÒÔ
-	printf("func(1, 2) = %d\n", func(1, 2));    // ²»¿ÉÒÔ
+	printf("func(1, 2, 3) = %d\n", func(1, 2, 3)); // å¯ä»¥
+	printf("func(1, 2) = %d\n", func(1, 2));    // ä¸å¯ä»¥
 
 	printf("Press enter to continue ...");
 	getchar();
@@ -98,23 +98,23 @@ int main01(int argc, char *argv[])
 
 ///////////////////////////////////////////////////////
 /*
-¿ÉÒÔ½«Õ¼Î»²ÎÊýÓëÄ¬ÈÏ²ÎÊý½áºÏÆðÀ´Ê¹ÓÃ
-ÒâÒå
-ÎªÒÔºó³ÌÐòµÄÀ©Õ¹ÁôÏÂÏßË÷£¨²»³£Ê¹ÓÃ£©
-¼æÈÝCÓïÑÔ³ÌÐòÖÐ¿ÉÄÜ³öÏÖµÄ²»¹æ·¶Ð´·¨
+å¯ä»¥å°†å ä½å‚æ•°ä¸Žé»˜è®¤å‚æ•°ç»“åˆèµ·æ¥ä½¿ç”¨
+æ„ä¹‰
+ä¸ºä»¥åŽç¨‹åºçš„æ‰©å±•ç•™ä¸‹çº¿ç´¢ï¼ˆä¸å¸¸ä½¿ç”¨ï¼‰
+å…¼å®¹Cè¯­è¨€ç¨‹åºä¸­å¯èƒ½å‡ºçŽ°çš„ä¸è§„èŒƒå†™æ³•
 */
 
-//C++¿ÉÒÔÉùÃ÷Õ¼Î»·û²ÎÊý£¬Õ¼Î»·û²ÎÊýÒ»°ãÓÃÓÚ³ÌÐòÀ©Õ¹ºÍ¶ÔC´úÂëµÄ¼æÈÝ
+//C++å¯ä»¥å£°æ˜Žå ä½ç¬¦å‚æ•°ï¼Œå ä½ç¬¦å‚æ•°ä¸€èˆ¬ç”¨äºŽç¨‹åºæ‰©å±•å’Œå¯¹Cä»£ç çš„å…¼å®¹
 
-int func(int a, int b, int = 0)  //int = 0£ºÄ¬ÈÏ+Õ¼Î»²ÎÊý£¨»ì´î£©
+int func(int a, int b, int = 0)  //int = 0ï¼šé»˜è®¤+å ä½å‚æ•°ï¼ˆæ··æ­ï¼‰
 {
 	return a + b;
 }
 
 int main66(int argc, char *argv[])
 {
-	printf("func(10, 20) = %d\n", func(10, 20)); // ¿ÉÒÔ
-	func(10, 20, 30)£»//¿ÉÒÔ
+	printf("func(10, 20) = %d\n", func(10, 20)); // å¯ä»¥
+	func(10, 20, 30)ï¼›//å¯ä»¥
 
 	printf("Press enter to continue ...");
 	getchar();

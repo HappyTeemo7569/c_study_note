@@ -1,10 +1,10 @@
-//���غͺ���ָ����
+//重载和函数指针结合
  
 /*
-���������뺯��ָ��
-         ��ʹ�����غ������Ժ���ָ����и�ֵʱ
-         �������ع�����ѡ�뺯��ָ������б�һ�µĺ�ѡ��
-         �ϸ�ƥ���ѡ�ߵĺ��������뺯��ָ��ĺ�������
+函数重载与函数指针
+         当使用重载函数名对函数指针进行赋值时
+         根据重载规则挑选与函数指针参数列表一致的候选者
+         严格匹配候选者的函数类型与函数指针的函数类型
 */
 
 #include <stdio.h>
@@ -27,9 +27,9 @@ int func(const char* s)
 }
 
 typedef int(*PFUNC)(int a); // int(int a)
-//int *PFUNC(int a)����
-//int (*PFUNC)(int a)  PFUNC�Ǹ�����ָ�룬ֻ��ָ��һ�������ͷ���ֵ����int�ĺ���
-//typedef int(*PFUNC)(int a); ������һ���µ�����PFUNC
+//int *PFUNC(int a)函数
+//int (*PFUNC)(int a)  PFUNC是个函数指针，只能指向一个参数和返回值都是int的函数
+//typedef int(*PFUNC)(int a); 定义了一个新的类型PFUNC
 
 int main(int argc, char *argv[])
 {
